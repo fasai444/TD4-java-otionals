@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in `ls -1 $1/`
+do
+	echo '############ diff between' "'$1/$file' and '$2/$file'"
+	diff -W 250 -y --suppress-common-lines $1/$file $2/$file | colordiff
+done
+
